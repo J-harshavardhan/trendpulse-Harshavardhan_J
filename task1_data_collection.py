@@ -69,11 +69,11 @@ for sub_reddits in SUBREDDITS:
 os.makedirs('data', exist_ok=True)
 
 # Filename includes todays date 
-F_N= datetime.datetime.now().strftime("%Y%m%d")
-F_P = os.path.join("data", f"trends_{F_N}.json")
+FileName= datetime.datetime.now().strftime("%Y%m%d")
+FilePath = os.path.join("data", f"trends_{FileName}.json")
 
 # File : 
-with open(F_P, 'w', encoding="utf-8") as f :
+with open(FilePath, 'w', encoding="utf-8") as f :
     json.dump(all_posts, f , indent=2, ensure_ascii=False)
 
-print(f"\nCollacted {len(all_posts)}, posts. Saved to {F_P}")
+print(f"\nCollected {len(all_posts)}, posts. Saved to {FilePath}")
