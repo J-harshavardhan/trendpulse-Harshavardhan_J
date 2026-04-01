@@ -1,5 +1,5 @@
-# TrendPulse - Task 4: Visualizations
-# Loads analysed CSV from Task 3 and creates 3 charts + a dashboard
+# TrendPulse - Task 4 : Visualizations
+# Loads the analysed CSV from Task 3 and creates 3 charts + a dashboard
 
 import pandas as pd
 import matplotlib.pyplot as plt 
