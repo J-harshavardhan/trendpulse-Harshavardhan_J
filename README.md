@@ -1,74 +1,114 @@
-# 🚀 TrendPulse
+# 🚀 TrendPulse: What's Actually Trending Right Now
 
-### Reddit Trends Data Pipeline (Mini Project – AIML)
+> 📌 *This is my first mini project in Data Science & AI/ML, where I built a complete end-to-end data pipeline using real-world Reddit data.*
 
-![Python](https://img.shields.io/badge/Python-3.14-blue)
-![Status](https://img.shields.io/badge/Status-Active-success)
-![Project Type](https://img.shields.io/badge/Type-Data%20Pipeline-orange)
-![License](https://img.shields.io/badge/License-Academic-lightgrey)
+TrendPulse is an end-to-end data pipeline project that collects, processes, analyzes, and visualizes real-time trending data from Reddit.
 
 ---
 
-## 📌 Project Overview
+## 🔑 Keywords
 
-**TrendPulse** is a mini data engineering and analytics project developed under the **AIML program (IIT Patna × Masai School)**.
-
-It implements a **data pipeline** that extracts trending data from Reddit, processes it into structured format, and prepares it for analytics and visualization.
-
-This project simulates a **real-world data workflow** used in:
-
-* Social media analytics
-* Trend detection systems
-* Data-driven decision making
+**Data Pipeline • Data Engineering • Data Analysis • Data Visualization • ETL • API Integration • Python • Pandas • NumPy • Matplotlib • JSON Processing • Dashboard**
 
 ---
 
-## 🎯 Problem Statement
+## 📌 Overview
 
-Social media platforms generate massive unstructured data, but:
+This project demonstrates a complete data workflow:
 
-* Data is noisy and inconsistent
-* APIs return nested JSON
-* Raw data is not analysis-ready
+➡️ Data Collection → Data Cleaning → Data Analysis → Data Visualization
 
-**Solution:**
-Build a pipeline to:
-
-1. Extract data from Reddit
-2. Transform it into structured format
-3. Store it for analysis and visualization
+It simulates a real-world data engineering + analytics pipeline using Python.
 
 ---
 
 ## 🏗️ System Architecture
 
+TrendPulse follows a modular pipeline architecture where each stage transforms data step-by-step.
+
+### 🔄 Pipeline Flow
+
 ```
 Reddit API
-    ↓
-Data Collection (requests)
-    ↓
-JSON Processing
-    ↓
-Structured Dataset
-    ↓
-Storage (JSON / CSV)
-    ↓
-Analysis (Pandas / NumPy)
-    ↓
-Visualization (Matplotlib / Seaborn)
+   ↓
+Task 1: Data Collection (JSON)
+   ↓
+Task 2: Data Cleaning (CSV)
+   ↓
+Task 3: Data Analysis (Enhanced CSV)
+   ↓
+Task 4: Visualization (Charts + Dashboard)
 ```
 
 ---
 
-## 🛠️ Tech Stack
+## 📊 Project Preview
 
-| Layer           | Tools Used                       |
-| --------------- | -------------------------------- |
-| Language        | Python 3.14                      |
-| Data Collection | requests                         |
-| Data Processing | Pandas, NumPy *(upcoming)*       |
-| Storage         | JSON, CSV                        |
-| Visualization   | Matplotlib, Seaborn *(upcoming)* |
+### 🔹 Top 10 Stories by Score
+
+![Top Stories](outputs/chart1_top_stories.png)
+
+### 🔹 Stories per Category
+
+![Categories](outputs/chart2_categories.png)
+
+### 🔹 Score vs Comments (Engagement Analysis)
+
+![Scatter](outputs/chart3_scatter.png)
+
+### 🔹 TrendPulse Dashboard
+
+![Dashboard](outputs/dashboard.png)
+
+---
+
+### 📌 Component Breakdown
+
+#### 🔹 1. Data Collection Layer
+
+* Fetches trending posts from multiple subreddits using Reddit API
+* Extracts key fields (title, score, comments, etc.)
+* Stores raw data in JSON format
+  📄 `task1_data_collection.py`
+
+---
+
+#### 🔹 2. Data Processing Layer
+
+* Removes duplicates and null values
+* Converts data types (score, comments)
+* Filters low-quality posts (score < 5)
+* Outputs cleaned dataset
+  📄 `task2_data_processing.py`
+
+---
+
+#### 🔹 3. Data Analysis Layer
+
+* Computes statistics using Pandas & NumPy:
+
+  * Mean, Median, Standard Deviation
+* Identifies:
+
+  * Most active subreddit
+  * Most commented post
+* Adds derived features:
+
+  * `engagement = comments / (score + 1)`
+  * `is_popular = score > average_score`
+    📄 `task3_analysis.py`
+
+---
+
+#### 🔹 4. Visualization Layer
+
+* Creates 3 charts using Matplotlib:
+
+  * Top 10 stories (bar chart)
+  * Stories per category (bar chart)
+  * Score vs Comments (scatter plot)
+* Builds a combined dashboard
+  📄 `task4_visualization.py`
 
 ---
 
@@ -78,162 +118,87 @@ Visualization (Matplotlib / Seaborn)
 trendpulse-Harshavardhan_J/
 │
 ├── task1_data_collection.py
+├── task2_data_processing.py
+├── task3_analysis.py
+├── task4_visualization.py
+│
 ├── data/
-│   └── trends_YYYYMMDD.json
-├── README.md
+│   ├── trends_YYYYMMDD.json
+│   ├── trends_clean.csv
+│   └── trends_analysed.csv
+│
+├── outputs/
+│   ├── chart1_top_stories.png
+│   ├── chart2_categories.png
+│   ├── chart3_scatter.png
+│   └── dashboard.png
 ```
 
 ---
 
-## ⚙️ Features
+## 🛠️ Tech Stack
 
-### 🔹 Task 1 — Data Collection
-
-* Fetches trending posts from:
-
-  * r/technology
-  * r/worldnews
-  * r/sports
-  * r/science
-  * r/entertainment
-
-* Extracted Fields:
-
-  * Post ID
-  * Title
-  * Subreddit
-  * Score
-  * Comments
-  * Author
-  * Timestamp
-
-* Includes:
-
-  * API handling
-  * Rate limiting (2 seconds)
-  * Error handling
+* Python
+* Pandas
+* NumPy
+* Matplotlib
+* Requests (API handling)
 
 ---
 
-## ▶️ How to Run
+## ⚙️ How to Run
 
-### 1. Clone Repository
+### 1️⃣ Clone Repository
 
 ```
 git clone https://github.com/J-harshavardhan/trendpulse-Harshavardhan_J.git
 cd trendpulse-Harshavardhan_J
 ```
 
-### 2. Install Dependencies
+### 2️⃣ Install Dependencies
 
 ```
-pip install requests
+pip install pandas numpy matplotlib requests
 ```
 
-### 3. Run Script
+### 3️⃣ Run Full Pipeline
 
 ```
 python task1_data_collection.py
+python task2_data_processing.py
+python task3_analysis.py
+python task4_visualization.py
 ```
 
 ---
 
-## 📊 Output
+## 📈 Learning Outcomes
 
-Stored in:
-
-```
-data/trends_YYYYMMDD.json
-```
-
-### Sample Data
-
-```json
-{
-  "post_id": "xyz123",
-  "title": "AI is transforming the future",
-  "subreddit": "technology",
-  "score": 2100,
-  "num_comments": 450,
-  "author": "user_abc",
-  "collected_at": "2026-04-01 23:10:00"
-}
-```
+* Built a complete data pipeline from scratch
+* Worked with real-world API data (Reddit)
+* Learned data cleaning and preprocessing techniques
+* Performed statistical analysis using NumPy
+* Created meaningful visualizations using Matplotlib
+* Understood modular pipeline architecture
 
 ---
 
-## 📈 Future Enhancements
+## 🔮 Future Improvements
 
-### 🔹 Task 2 — Clean the Data & Save as CSV
-
-* Handle missing values
-* Remove duplicate records
-* Standardize formats
-* Convert JSON → CSV
-* Prepare ML-ready dataset
+* Build a real-time dashboard using Streamlit
+* Automate daily data collection (scheduler/cron)
+* Add machine learning for trend prediction
+* Deploy as a web application
 
 ---
 
-### 🔹 Task 3 — Analysis with Pandas & NumPy
+## 👨‍💻 Author
 
-* Perform Exploratory Data Analysis (EDA)
-* Identify:
-
-  * Most active subreddits
-  * Highest engagement posts
-  * User interaction trends
-* Apply statistical operations
+**Harshavardhan**
+AI & ML Student
 
 ---
 
-### 🔹 Task 4 — Visualizations
+## ⭐ Acknowledgment
 
-* Bar charts → Top subreddits
-* Line charts → Trend over time
-* Pie charts → Data distribution
-* Tools:
-
-  * Matplotlib
-  * Seaborn
-* Optional: Streamlit dashboard
-
----
-
-## 📈 Complexity
-
-* **Time Complexity:** O(S × L)
-
-  * S = number of subreddits
-  * L = posts per subreddit
-
----
-
-## 🎓 Learning Outcomes
-
-* API integration
-* JSON parsing
-* Data pipeline design
-* Data preprocessing
-* Preparation for ML workflows
-
----
-
-## 👤 Author
-
-**Harshavardhan J**
-AIML Student – IIT Patna × Masai School
-GitHub: https://github.com/J-harshavardhan
-
----
-
-## ⭐ Contribution / Feedback
-
-Suggestions and improvements are welcome!
-
----
-
-## 📜 License
-
-For academic and educational use only.
-
----
+This project was built as part of an AIML learning program to demonstrate practical data pipeline skills.
