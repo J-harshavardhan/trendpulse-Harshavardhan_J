@@ -25,7 +25,11 @@ df.drop_duplicates(subset='post_id' )
 print(f"After removing duplicates: {len(df)}")
 
 # Drop rows where essential fields are missing values 
+
 df.dropna(subset=['post_id','title','score'])
+
+df.dropna(subset=['post_id','title','score'] )
+
 print(f"After removing nulls: {len(df)}")
 
 #Data types — make sure score and num_comments are integers
